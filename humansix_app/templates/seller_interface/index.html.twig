@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestionnaire de commande{% endblock %}
+
+{% block main %}
+    <div class="main-container">
+        <div class=container>
+            <h1 class="p-5">Gestion des commandes</h1>
+            <div class="filter-container"></div>
+            <div class="tab-container">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Acheteur</th>
+                        <th scope="col">Date de commande</th>
+                        <th scope="col">Total commande</th>
+                        <th scope="col">Status commande</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for order in orders %}
+                        <tr>
+                            <th scope="row">{{ order.id }}</th>
+                            <td>{{ order.customer.firstname }}<br>{{ order.customer.lastname }}</td>
+                            <td>{{ order.orderDate |format_datetime('short', 'short', locale='fr') }}</td>
+                            <td>{{ order.orderPrice }} €</td>
+                            <td>{{ order.status }}</td>
+                            <td>
+                                <button class="btn show-cart-btn" data-bs-placement="left" data-bs-toggle="popover"
+                                        title="Panier" data-bs-content=
+                                        "{% for row in order.rows %}
+                                        {% for product in products %}
+                                            {% if row.getProductId() == product.id %}
+                                             {{ product.name }}x{{ row.quantity }}
+                                            {% endif %}
+                                            {% endfor %}
+                                    {% endfor %}
+                                    ">Show Cart
+                                </button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script>
+        $(function() {
+            $("[data-toggle='popover']").popover();
+        })
+    </script>
+{% endblock %}

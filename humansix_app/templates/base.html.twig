@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            <div class="navbar">
+                <div class="row">
+                    <a class="navbar-brand" href="#">Humansix<br>order<br>Manager</a>
+                </div>
+                <div class="row">
+                    <ul class="navbar-nav text-center">
+                        <li class="nav-item p-3 ">
+                            <a class="nav-link active" aria-current="page" href="#">Gestion des commandes</a>
+                        </li>
+                        <hr class="m-3">
+                        <li class="nav-item p-3">
+                            <a class="nav-link" href="#">Nouvelle commande</a>
+                        </li>
+                        <hr class="m-3">
+                        <li class="nav-item p-3">
+                            <a class="nav-link" href="#">API</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+
+
+
+
+
+
+        {% endblock %}
+        {% block main %}{% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </body>
+</html>
