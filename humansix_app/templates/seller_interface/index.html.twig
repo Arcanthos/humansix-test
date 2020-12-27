@@ -15,7 +15,7 @@
                         <th scope="col">Acheteur</th>
                         <th scope="col">Date de commande</th>
                         <th scope="col">Total commande</th>
-                        <th scope="col">Status commande</th>
+                        <th scope="col">Statut commande</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -28,7 +28,7 @@
                             <td>{{ order.orderPrice }} €</td>
                             <td>{{ order.status }}</td>
                             <td>
-                                <button class="btn show-cart-btn" data-bs-placement="left" data-bs-toggle="popover"
+                                <button id="{{ order.id }}"class="btn show-cart-btn" data-bs-placement="left" data-bs-toggle="popover"
                                         title="Panier" data-bs-content=
                                         "{% for row in order.rows %}
                                         {% for product in products %}
@@ -52,9 +52,5 @@
 {% endblock %}
 {% block javascript %}
     {{ parent() }}
-    <script>
-        $(function() {
-            $("[data-toggle='popover']").popover();
-        })
-    </script>
+    <script src="assets/scripts/showCart.js"></script>
 {% endblock %}

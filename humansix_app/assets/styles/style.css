@@ -65,4 +65,25 @@ td {
   min-height: 100vh;
 }
 
+.login-form {
+  background-color: #001858;
+}
+.login-form h1 {
+  color: #fef6e4;
+}
+.login-form label {
+  color: #f582ae;
+  text-transform: uppercase;
+}
+
+.btn-login-form {
+  background-color: #fef6e4;
+  color: #001858;
+  border: none;
+}
+.btn-login-form:focus {
+  box-shadow: none;
+  background-color: #f582ae;
+}
+
 /*# sourceMappingURL=style.css.map */

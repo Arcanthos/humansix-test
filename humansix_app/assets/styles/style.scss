@@ -72,3 +72,24 @@ td{
   width: 90vw;
   min-height: 100vh;
 }
+
+.login-form{
+  background-color: $headline-color;
+  h1{
+    color: $highlight-color;
+  }
+  label{
+    color: $tertiary-color;
+    text-transform: uppercase;
+  }
+}
+
+.btn-login-form{
+  background-color: $highlight-color;
+  color: $headline-color;
+  border: none;
+  &:focus{
+    box-shadow: none;
+    background-color: $tertiary-color;
+  }
+}
